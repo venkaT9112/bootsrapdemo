@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+        background: url(2.jpg) no-repeat;
+        background-size: cover;
+        height: calc(100vh - 80px);
+    }
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Book</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a class="nav-link" href="HomePage.html">Home</a>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          User
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="UserLogin.html">User Login</a>
+          <a class="dropdown-item" href="UserRegister.html">User Register</a>
+        </div>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Books
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="AddBook.html">Add Book</a>
+          <a class="dropdown-item" href="ReviewBook.html">Book Review</a>
+          <a class="dropdown-item" href="#">Update Book</a>
+          <a class="dropdown-item" href="ViewBooks.html">View Book</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <br>
+  <br>
+  
+
+<div class="container mt-3">
+  <h2 class="text-info">Books</h2>
+  <p>Type something in the input field to search the table for Books:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search...">
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Book ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Price</th>
+        
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>1</td>
+        <td>Datascience</td>
+        <td>Kittu</td>
+        <td>tech</td>
+        <td>300.00</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>rama</td>
+        <td>kittu</td>
+        <td>Novel</td>
+        <td>250.0</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bhagamathi</td>
+        <td>radhakrishna</td>
+        <td>Novel</td>
+        <td>500.00</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Ghani</td>
+        <td>Varun</td>
+        <td>Tech</td>
+        <td>100.0</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>RRR</td>
+        <td>Rajamouli</td>
+        <td>Poem</td>
+        <td>15.0</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Bahubali</td>
+        <td>Rajamouli</td>
+        <td>Novel</td>
+        <td>1000.0</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>
